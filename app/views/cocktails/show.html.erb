@@ -1,0 +1,15 @@
+<h2><%= @cocktail.name %></h2>
+
+<!-- #go through each ingredient of the cocktail and display it on the show page -->
+
+<ul>
+  <% @cocktail.doses.each do |dose| %>
+    <li><%= dose.description %>
+        <%= dose.ingredient.name %>
+    </li>
+  <% end %>
+</ul>
+
+<!-- # specify path and then pass the correct model as an argument (show method in controller) -->
+<%= link_to "New Ingredient", new_cocktail_dose_path(@cocktail) %>
+<%= link_to "Delete Ingredient", new_cocktail_dose_path(@cocktail) %>
